@@ -58,6 +58,14 @@ public class StreamExamples {
 		
 		System.out.println(String.join(",", empNames));
 		
+		//OR
+		
+		String empNamesStrJoined = employeesList.stream()
+				.map(e -> e.getName())
+				.collect(Collectors.joining(",-"));
+				
+				System.out.println(empNamesStrJoined);
+		
 		/*
 		 * Given the list of employees, you need to group them by name
 		 */
