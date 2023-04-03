@@ -1,0 +1,58 @@
+package com.pratik.springboot.rest.controller;
+
+import java.util.ArrayList;
+import java.util.List;
+import java.util.stream.Collectors;
+
+public class ReverseString {
+    public static void main(String[] args) {
+        Employee emp1 = new Employee();
+        emp1.setAge(1);
+        emp1.setName("P1");
+
+        Employee emp2 = new Employee();
+        emp2.setAge(2);
+        emp2.setName("P2");
+
+        Employee emp3 = new Employee();
+        emp3.setAge(3);
+        emp3.setName("P3");
+
+        Employee emp4 = new Employee();
+        emp4.setAge(4);
+        emp4.setName("P4");
+
+        List<Employee> empList = new ArrayList<>();
+        empList.add(emp1);
+        empList.add(emp2);
+        empList.add(emp3);
+        empList.add(emp4);
+
+        System.out.println(empList.stream()
+                .filter(e -> e.getAge() > 2)
+                .map(e -> e.getName())
+                .sorted()
+                .collect(Collectors.toList()));
+    }
+}
+
+class Employee {
+    private String name;
+    private int age;
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public int getAge() {
+        return age;
+    }
+
+    public void setAge(int age) {
+        this.age = age;
+    }
+}
